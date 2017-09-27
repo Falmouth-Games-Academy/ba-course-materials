@@ -20,8 +20,8 @@
 
 \input{sessioninfo}
 
-\begin{document}
-\title{\sessionnumber: Code Smells and Design Patterns}
+\begin{frame}
+\title{\sessionnumber: Code Smells}
 \subtitle{\modulecode: \moduletitle}
 
 \frame{\titlepage} 
@@ -30,8 +30,8 @@
 	\frametitle{Learning outcomes}
 	\begin{itemize}
 		\item \textbf{Understand} the concept of Code Smells
-		\item \textbf{Explain} the concept of Design Patterns
-		\item \textbf{Understand} the output of a static code analyser
+		\item \textbf{Demonstrate} the ability to detect code smells
+		\item \textbf{Use} a Static Analyzer to detect problems in your code
 	\end{itemize}
 \end{frame}
 
@@ -106,4 +106,57 @@
 	\end{itemize}
 \end{frame}
 
-\end{document}
+\section{Coffee Break}
+\begin{frame}
+	\begin{center}
+		Coffee Time! - 30 min break
+	\end{center}
+\end{frame}
+
+\section{Static Code Analysis}
+
+\begin{frame}
+	\frametitle{Static Code Analysis}
+	\begin{itemize}
+		\item Usually part of a code review
+		\item A tool is ran on the source code and it detects numerous problems including:
+		\begin{itemize}
+			\item Bugs
+			\item Performance issues
+			\item Some Code Smells
+		\end{itemize}
+		\item The information provide can be used to improve your code base
+		\item This ideally should be automated and the report analysed by the team
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Static Code Analysis Tools for Unity \& C\#}
+	\begin{itemize}
+		\item Unity Engine Analyzer - \url{https://github.com/meng-hui/UnityEngineAnalyzer}
+		\item Gendarme for Unity - \url{https://forum.unity.com/threads/gendarme-for-unity-a-code-analysis-tool.112552/}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		Static Code Analysis Demo
+	\end{center}
+\end{frame}
+
+\section{Static Code Analysis - Activity}
+
+\begin{frame}
+	\frametitle{Static Code Analysis Exercise}
+	\begin{itemize}
+		\item Download one of your old Projects (GAM150, GAM160 or 1st Year Project)
+		\item Run Gendarme or Unity Engine Analyzer on your project
+		\item Select some of the issues identified, can you find ways to fix them?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center} 
+		Further reading (or watching!) - \url{https://www.youtube.com/watch?v=VxeC7WFfg3Q}
+	\end{center}
+\end{frame}
