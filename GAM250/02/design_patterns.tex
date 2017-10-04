@@ -1,81 +1,6 @@
 \part{OO Design Basics}
 \frame{\partpage}
 
-\begin{frame}{Learning Outcomes}
-	In this section you will learn how to...
-	
-	\begin{itemize}
-		\item \textbf{Illustrate} the role of UML in communicating software design
-		\item \textbf{Explain} basic OO design principles, including abstraction and polymorphism
-		\item \textbf{Explain} the role of design patterns in object-orientated software design
-		\item \textbf{Identify} the key components of a pattern
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Object Modelling Techniques}
-	\begin{itemize}
-		\item Used to describe patterns in the GO4 book
-		\item Uses UML to graphical represent different OO relationships:
-		\begin{itemize}
-			\item \textbf{class diagrams}: show the static relationship between classes
-			\item \textbf{object diagrams}: show the state of a program as a series of related objects
-			\item \textbf{interaction diagrams}: illustrate execution of the program as an interaction among
-			related objects
-		\end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Classes}
-	\begin{center}
-		\includegraphics[width=5cm]{class_diagram.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Object Instantiation}
-	\begin{center}
-		\includegraphics[width=10cm]{instance_diagram.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Subclassing and Abstract Classes}
-	\begin{center}
-		\includegraphics[width=10cm]{subclasses_and_abstraction.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Abstraction and Polymorphism}
-	\begin{center}
-		\includegraphics[width=10cm]{LiquidFamilyUML.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Pseudo-code and Containing}
-	\begin{center}
-		\includegraphics[width=10cm]{pseudocode_and_containment.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Object Diagrams}
-	\begin{center}
-		\includegraphics[width=10cm]{object_diagram.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Interaction Diagrams}
-	\begin{center}
-		\includegraphics[width=10cm]{interaction_diagram.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Role of Design Patterns}
-	\begin{itemize}
-		\item OO design is more than just drawing diagrams, it is craftsmanship
-		\item Good drafters are good designers
-		\item OO design skill comes with deliberate practice and project experience
-		\item A powerful form of abstraction and resuse is \textit{design} abstraction and re-use
-	\end{itemize}
-\end{frame}
-
 \begin{frame}{Role of Design Patterns}
 Object orientated systems tend to exhibit recurring structures that promote:
 
@@ -148,16 +73,6 @@ A design pattern is comprised of:
 \part{Design Patterns}
 \frame{\partpage}
 
-\begin{frame}{Learning Outcomes}
-	In this section you will learn how to...
-	
-	\begin{itemize}
-		\item \textbf{Distinguish} between creational, structural, and behavoral design patterns
-		\item \textbf{Compare and contrast} different design patterns
-		\item \textbf{Suggest} the most appropriate design pattern for a given context
-	\end{itemize}
-\end{frame}
-
 \begin{frame}{Types of Design Pattern}
 Design patterns come in three main flavours:
 
@@ -207,7 +122,7 @@ Design patterns come in three main flavours:
 	We will now briefly examine these patterns. Throughout this section...
 	
 	\begin{itemize}
-		\item \textbf{Please} make notes on Slack
+		\item \textbf{Please} make notes
 		\item \textbf{Link} to on-line resources
 		\item \textbf{Ask} questions
 		\item \textbf{Think} about how the patterns may apply to your own projects
@@ -216,91 +131,64 @@ Design patterns come in three main flavours:
 \end{frame}
 
 \begin{frame}{Singleton}
-	\begin{center}
-		\includegraphics[width=10cm]{pattern_singleton.jpg}
-	\end{center}
+	\begin{itemize}
+		\item Guarantees that there is only one instance of a class and can be accessed globally
+		\item Usually 'lazily' initialised via a static function that satisfy the statement above
+		\item Used for manager classes which track some sort of Global State
+		\item \textbf{Warning!} Some consider Singletons to be an anti-pattern
+		\item Singleton: an anti-pattern? - \url{https://stackoverflow.com/questions/12755539/why-is-singleton-considered-an-anti-pattern}
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{Typesafe Enum}
-	\begin{center}
-		\includegraphics[width=10cm]{pattern_typesafe.jpg}
-	\end{center}
-\end{frame}
 
 \begin{frame}{Abstract Factory}
-	\begin{center}
-		\includegraphics[width=10cm]{pattern_abstractfactory.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Prototype}
-	\begin{center}
-		\includegraphics[width=11cm]{pattern_prototype.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Builder}
-	\begin{center}
-		\includegraphics[width=11cm]{pattern_builder.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Adapter}
-	\begin{center}
-		\includegraphics[width=10cm]{pattern_adapter.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Bridge}
-	\begin{center}
-		\includegraphics[width=10cm]{pattern_bridge.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Proxy}
-	\begin{center}
-		\includegraphics[width=10cm]{pattern_proxy.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Facade}
-	\begin{center}
-		\includegraphics[width=10cm]{pattern_facade.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Decorator}
-	\begin{center}
-		\includegraphics[width=8cm]{pattern_decorator.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Template}
-	\begin{center}
-		\includegraphics[width=7cm]{pattern_template.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{State}
-	\begin{center}
-		\includegraphics[width=10cm]{pattern_state.jpg}
-	\end{center}
+	\begin{itemize}
+		\item Centralises the creation of similar objects
+		\item Decouples the creation of the object from actual object
+		\item This pattern requires several class
+		\begin{itemize}
+			\item Abstract Product - Base class for all things created by the Factory
+			\item Abstract Factory - Base class for all factories, creates Abstract Products
+			\item Many Concrete Products - Implement Abstract Product
+			\item Many Concrete Factories - Implements Abstract Factory and creates Concrete Products 
+		\end{itemize}
+		\item The caller then creates instances of Product through the concrete factory
+		\item Used for spawning objects or the creation of other similar objects
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Observer}
-	\begin{center}
-		\includegraphics[width=11cm]{pattern_observer.jpg}
-	\end{center}
+	\begin{itemize}
+		\item When one object is updated, all observers of this object are notified
+		\item A list of observers are mainted by the subject
+		\item When the state of the subject changes then the list of the observers is processed
+		\item Each observer is then notified of the change
+		\item Each observer should register/unregistered itself with a subject 
+		\item Very useful for UI, Input or Network systems in games
+		\item Some of this function is already built into C\#(delegates \& Events) and Unity(Unity Events)
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{Visitor}
-	\begin{center}
-		\includegraphics[width=8cm]{pattern_visitor.jpg}
-	\end{center}
+\begin{frame}{State}
+	\begin{itemize}
+		\item Do you have large amount of if..else or switch statements in your code?
+		\item Have you ever had to change such a system?
+		\item Then the State pattern is here to help
+		\item You define a Base State class which all other States implement
+		\item This Base State will have a method for updating the state, for entering and exiting
+		\item Each Concrete State will then implement these methods and handle its own logic 
+		\item Transitions can be handled by a Manager class
+		\item This is generally used to deal with Game State or AI (see Finite State Machines)
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{Strategy}
-	\begin{center}
-		\includegraphics[width=10cm]{pattern_strategy.jpg}
-	\end{center}
+\begin{frame}{Unity Implementations}
+	\begin{itemize}
+		\item Singleton - \url{https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager}
+		\item Factory - \url{http://brightreasongames.com/object-construction-factory-method/}
+		\item State - \url{http://www.habrador.com/tutorials/programming-patterns/6-state-pattern/}
+		\item Observer -
+		\url{http://www.habrador.com/tutorials/programming-patterns/3-observer-pattern/}
+		
+	\end{itemize}
 \end{frame}
