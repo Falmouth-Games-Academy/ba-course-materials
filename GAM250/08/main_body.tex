@@ -1,0 +1,53 @@
+% Adjust these for the path of the theme and its graphics, relative to this file
+%\usepackage{beamerthemeFalmouthGamesAcademy}
+\usepackage{../../beamerthemeFalmouthGamesAcademy}
+\usepackage{multimedia}
+\graphicspath{ {../../} }
+
+% Default language for code listings
+\lstset{language=C++,
+	morekeywords={each,in,nullptr}
+}
+
+% For strikethrough effect
+\usepackage[normalem]{ulem}
+\usepackage{wasysym}
+
+\usepackage{pdfpages}
+
+% http://www.texample.net/tikz/examples/state-machine/
+\usetikzlibrary{arrows,automata}
+
+\usepackage{qtree}
+
+
+\input{sessioninfo}
+
+\begin{document}
+\title{\sessionnumber: AI}
+\subtitle{\modulecode: \moduletitle}
+
+\frame{\titlepage} 
+
+\begin{frame}
+	\frametitle{Learning outcomes}
+	\begin{itemize}
+		\item \textbf{Understand} navigation in Video Games
+		\item \textbf{Implement} Finite State Machines in Unity
+		\item \textbf{Implement} Behaviour Trees in Unity
+	\end{itemize}
+\end{frame}
+
+\input{pathfinding}
+\input{navmesh}
+\input{fsm}
+\input{bt}
+
+\begin{frame}{Further Reading}
+	\begin{itemize}
+		\item Game Programming Patterns - \url{http://gameprogrammingpatterns.com/contents.html}
+		\item Game Programming Patterns in Unity - \url{http://www.habrador.com/tutorials/programming-patterns/}
+		\item Unity Design Patterns - \url{https://github.com/Naphier/unity-design-patterns}
+	\end{itemize}
+\end{frame}
+\end{document}
