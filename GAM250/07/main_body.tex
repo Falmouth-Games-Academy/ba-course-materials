@@ -1,0 +1,74 @@
+% Adjust these for the path of the theme and its graphics, relative to this file
+%\usepackage{beamerthemeFalmouthGamesAcademy}
+\usepackage{../../beamerthemeFalmouthGamesAcademy}
+\usepackage{multimedia}
+\graphicspath{ {../../} }
+
+% Default language for code listings
+\lstset{language=C++,
+	morekeywords={each,in,nullptr}
+}
+
+% For strikethrough effect
+\usepackage[normalem]{ulem}
+\usepackage{wasysym}
+
+\usepackage{pdfpages}
+
+% http://www.texample.net/tikz/examples/state-machine/
+\usetikzlibrary{arrows,automata}
+
+\usepackage{qtree}
+
+
+\input{sessioninfo}
+
+\begin{document}
+\title{\sessionnumber: AI}
+\subtitle{\modulecode: \moduletitle}
+
+\frame{\titlepage} 
+
+\begin{frame}
+	\frametitle{Learning outcomes}
+	\begin{itemize}
+		\item \textbf{Understand} navigation in Video Games
+		\item \textbf{Implement} Finite State Machines in Unity
+		\item \textbf{Implement} Behaviour Trees in Unity
+	\end{itemize}
+\end{frame}
+
+\input{pathfinding}
+\input{navmesh}
+\input{fsm}
+\input{bt}
+
+\begin{frame}{Exercise}
+\begin{itemize}
+	\item Using FSM or Behaviour Trees, create an AI agent which does the following
+	\begin{itemize}
+		\item Navigates a series of waypoints
+		\item Shoots at the player when in range
+		\item When low on health it attempts to heal by collecting an item
+	\end{itemize}
+	\item Stretch Goal: Make an AI Agent to replace the player!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Further Reading 1}
+	\begin{itemize}
+		\item Finite State AI in Unity - \url{https://unity3d.com/learn/tutorials/topics/navigation/finite-state-ai-delegate-pattern}
+		\item Using Unity Animator as an FSM - \url{https://medium.com/the-unity-developers-handbook/dont-re-invent-finite-state-machines-how-to-repurpose-unity-s-animator-7c6c421e5785}
+		\item Behaviour Machine (FSM \& BT for Unity) - \url{http://www.behaviourmachine.com/}
+		\item Unity Behavior Library - \url{https://github.com/listentorick/UnityBehaviorLibrary/}
+		\item Unity Crystal AI - \url{https://igiagkiozis.github.io/CrystalAI/}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Further Reading 2}
+\begin{itemize}
+	\item Behaviour Trees in Project Zomboid - \url{https://www.gamasutra.com/blogs/ChrisSimpson/20140717/221339/Behavior_trees_for_AI_How_they_work.php}
+	\item Behaviour Trees in Unreal - \url{https://docs.unrealengine.com/latest/INT/Engine/AI/BehaviorTrees/QuickStart/}
+\end{itemize}
+\end{frame}
+\end{document}

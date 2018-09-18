@@ -1,0 +1,26 @@
+\part{Post-Processing}
+\frame{\partpage}
+
+
+\begin{frame}{What is Post-Processing}
+	\begin{itemize}
+		\item Is processing that occurs after the scene is rendered
+		\pause\item This allows us to implement effects such as static, distortions etc
+		\pause\item Post-Processing effects can be stacked so that one feeds into the next
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Writing Post-Processing Effects}
+	\begin{itemize}
+		\item We first have to write a vertex and fragment shader and attach it to a material
+		\pause\item Create a C\# script and override the \textbf{OnRenderImage} function
+		\pause\item Inside the OnRenderImage function and call the \textbf{Graphics.Blit} function with the material as the last parameter
+		\pause\item Attach the script to the camera
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		Post-Processing Live Coding
+	\end{center}
+\end{frame}

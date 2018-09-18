@@ -21,7 +21,7 @@
 \input{sessioninfo}
 
 \begin{document}
-\title{\sessionnumber: Tool Development}
+\title{\sessionnumber: Profiling and Analytics}
 \subtitle{\modulecode: \moduletitle}
 
 \frame{\titlepage} 
@@ -29,16 +29,47 @@
 \begin{frame}
 	\frametitle{Learning outcomes}
 	\begin{itemize}
-		\item \textbf{Understand} the importance of tools in Game Development
-		\item \textbf{Implement} Scriptable Objects to create custom assets
-		\item \textbf{Implement} Property Inspectors and Wizards with Unity Editor Scripts 
+		\item \textbf{Understand} the importance of gathering data in Game Development
+		\item \textbf{Use} Unity's profiler to tweak the performance of your game
+		\item \textbf{Use} Unity Analytics tool to understand player beahviour
 	\end{itemize}
 \end{frame}
 
-\input{Attributes}
-\input{PropertyDrawer}
-\input{ScriptableObjects}
-\input{Wizard}
-\input{Exercise}
+\begin{frame}{Live Coding}
+	\begin{center}
+	Analytics
+	\end{center}
+\end{frame}
 
+\begin{frame}{Exercise 1}
+	\begin{itemize}
+		\item Track the score after every player death
+		\item Track the amount of bullets the player has fired
+		\item Track the Players position overtime (NB. Don't track every frame)
+		\item Track how long the player, plays the game before exiting
+		\item Implement a number of observers to support tracking of the above stats
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Live Demo}
+	\begin{center}
+		Profiling
+	\end{center}
+\end{frame}
+
+\begin{frame}{Exercise 2}
+	\begin{itemize}
+		\item Profile the Shooter Games or your Game from 1st year
+		\item Look at the \textbf{Time} column, see if you can reduce this value
+		\item Look at the \textbf{GC} column, see if you can reduce this value
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Further Reading}
+	\begin{itemize}
+		\item Profiling (Unite 2017) - \url{https://www.youtube.com/watch?v=OSlOwJP8Z14}
+		\item Unity Optimisation (Unite 2017) - \url{https://www.youtube.com/watch?v=_wxitgdx-UI}
+		\item Unity Analytics and Player Behaviour (Unite 2016) -\url{https://www.youtube.com/watch?v=JzYkLzgdpWI} 
+	\end{itemize}
+\end{frame}
 \end{document}

@@ -1,0 +1,127 @@
+\part{Shading Languages}
+\frame{\partpage}
+
+
+\begin{frame}{High Level Shading Language (HLSL)}
+\begin{itemize}
+	\item Used for writing \textbf{shaders} for Direct3D and Unity3D
+	\pause\item C-like syntax
+	\pause\item But has data types that support mathematical operations
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Programming in HLSL}
+	\begin{itemize}
+		\item \lstinline{if} statements, \lstinline{for} loops, \lstinline{while} loops, \lstinline{do while} loops, \lstinline{switch} statements,
+		\lstinline{break}, \lstinline{continue}, \lstinline{return} all work the same as C++
+		\pause\item \lstinline{// Single-line comments} and \lstinline{/* Multi-line comments */} work the same too
+		\pause\item Function definitions and declarations are similar to C\#, except that parameters must be declared as
+		\lstinline{in}, \lstinline{out} or \lstinline{inout}
+		\pause\item Recursion is \textbf{forbidden}
+		\pause\item No \lstinline{class}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Data types in HLSL}
+	\begin{itemize}
+		\item \lstinline{bool}, \lstinline{int}, \lstinline{float}: just like in C++
+		\pause\item \lstinline{float2}, \lstinline{float3}, \lstinline{float4}: \textbf{vectors} of \lstinline{float}s
+		\pause\item \lstinline{float2x2}, \lstinline{float3x3}, \lstinline{float4x4}: \textbf{square matrices} of \lstinline{float}s
+		\pause\item \textbf{Arrays} of constant size e.g.\ \lstinline{float myArray[10]}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Vectors}
+	\begin{itemize}
+		\item An \textbf{$n$-dimensional vector} is formed of $n$ numbers
+		\pause\item E.g.\ 2-dimensional vectors:
+		$$ (1, 2) \qquad (-2.7, 0) \qquad (3.4, -12.7) $$
+		\pause\item E.g.\ 3-dimensional vectors:
+		$$ (1, 2, 0) \qquad (-9, 6, 3.7) \qquad (2.1, 2.1, 2.1) $$
+		\pause\item Used to represent \textbf{points} or \textbf{directions} in $n$ dimensions
+		\pause\item Also used to represent e.g.\ colours in RGB(A) space
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Constructing vectors in GLSL}
+	\begin{lstlisting}
+	float3 a = float3(1.2, 3.4);
+	float3 b = float3(1); // same as float3(1, 1, 1)
+	float3 c = float3(a, 5.6); // same as float3(1.2, 3.4, 5.6)
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Vector maths}
+	\pause Most operations work \textbf{component-wise}:
+	\begin{lstlisting}
+	float2 a = float2(1, 2);
+	float2 b = float2(3, 4);
+	float2 c = a + b; // c == float2(4, 6);
+	float2 d = a * b; // d == float2(3, 8);
+	\end{lstlisting}
+	\pause Can also multiply a \textbf{vector} by a \textbf{scalar}:
+	\begin{lstlisting}
+	float2 e = 3.1 * a; // e == float2(3.1, 6.2)
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Accessing components}
+	\pause Can access the components of a vector as \lstinline{.x}, \lstinline{.y}, \lstinline{.z}, \lstinline{.w}:
+	\pause\begin{lstlisting}
+	float4 a = float4(1, 2, 3, 4);
+	float b = a.y; // b == 2
+	float c = a.z; // c == 3
+	a.x = 5;       // a == float4(5, 2, 3, 4)
+	a.w = a.y;     // a == float4(5, 2, 3, 2)
+	\end{lstlisting}
+	\pause Can also use \lstinline{r g b a} (for colours) and \lstinline{t u v w} (for texture coordinates)
+\end{frame}
+
+\begin{frame}[fragile]{Swizzling}
+	\pause Can access multiple components in one go:
+	\pause\begin{lstlisting}
+	float4 a = float4(1, 2, 3, 4);
+	float2 b = a.xy;    // b == float2(1, 2)
+	float3 c = a.zyz;   // c == float3(3, 2, 3)
+	a.xw = float2(5,6); // a == float4(5, 2, 3, 6)
+	a.xyzw = a.wzyx;  // a == float4(6, 3, 2, 5)
+	\end{lstlisting}
+	\begin{itemize}
+		\pause \item\textbf{Can} use the same component twice in the \textbf{right-hand side} of an assignment 
+		\pause \item\textbf{Cannot} use the same component twice in the \textbf{left-hand side} of an assignment 
+		\pause \item Swizzling is generally \textbf{faster} than the equivalent code without swizzling
+		\pause \item Can also use  \lstinline{r g b a} or \lstinline{t u v w}, but can't mix them
+		(e.g.\ \lstinline{.gbr} is valid but \lstinline{.gzx} is not)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Texture Data Types}
+	\begin{itemize}
+	\pause\item Textures are stored in the \textbf{Sampler} data type
+	\pause\item There are different samplers for different types of texture
+	\begin{itemize}
+		\pause\item 1D Texture - \textbf{sampler1D}
+		\pause\item 2D Texture - \textbf{sampler2D}
+		\pause\item 3D Texture - \textbf{sampler3D}
+		\pause\item Cube Map - \textbf{samplerCube} 
+	\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Unity Types}
+	\begin{itemize}
+		\item NB. When writing shaders you can used different precision data types rather than float (High precision)
+		\begin{itemize}
+			\pause\item Medium precision: \textbf{half} - directions, positions   
+			\pause\item Low precision: \textbf{fixed} - colours
+		\end{itemize}
+		\pause\item On Desktop PCs these are always converted to high precision
+		\pause\item These are important for optimisation for mobile
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Surface Shader}
+	\begin{center}
+		Live Coding
+	\end{center}
+\end{frame}

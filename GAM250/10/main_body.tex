@@ -1,0 +1,44 @@
+% Adjust these for the path of the theme and its graphics, relative to this file
+%\usepackage{beamerthemeFalmouthGamesAcademy}
+\usepackage{../../beamerthemeFalmouthGamesAcademy}
+\usepackage{multimedia}
+\graphicspath{ {../../} }
+
+% Default language for code listings
+\lstset{language=C++,
+        morekeywords={each,in,nullptr}
+}
+
+% For strikethrough effect
+\usepackage[normalem]{ulem}
+\usepackage{wasysym}
+
+\usepackage{pdfpages}
+
+% http://www.texample.net/tikz/examples/state-machine/
+\usetikzlibrary{arrows,automata}
+
+\input{sessioninfo}
+
+\begin{document}
+\title{\sessionnumber: Tool Development}
+\subtitle{\modulecode: \moduletitle}
+
+\frame{\titlepage} 
+
+\begin{frame}
+	\frametitle{Learning outcomes}
+	\begin{itemize}
+		\item \textbf{Understand} the importance of tools in Game Development
+		\item \textbf{Implement} Scriptable Objects to create custom assets
+		\item \textbf{Implement} Property Inspectors and Wizards with Unity Editor Scripts 
+	\end{itemize}
+\end{frame}
+
+\input{Attributes}
+\input{PropertyDrawer}
+\input{ScriptableObjects}
+\input{Wizard}
+\input{Exercise}
+
+\end{document}
