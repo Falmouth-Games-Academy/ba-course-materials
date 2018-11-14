@@ -1,0 +1,50 @@
+\part{Attributes}
+\frame{\partpage}
+
+\begin{frame}{Attributes in C\#}
+	\begin{itemize}
+		\item These are classes that allow you to add metadata to other classes
+		\item We can then extract these attributes and use them in our own code
+		\item There are a few of these defined in the C\# language including
+		\begin{itemize}
+			\item Obsolete - Mark a method as obsolete
+			\item Conditional - Mark a method as optionable based on a flag
+			\item AttributeUsage - Defines how a custom attribute can be used
+		\end{itemize}
+		\item We can also create our own custom attributes by creating a class that inherits from \textbf{Attribute}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Using Attributes}
+\begin{itemize}
+	\item To use an attribute you \textbf{decorate} a method, class or variable with a set of square brackets with the name of the attribute
+\end{itemize}
+\begin{lstlisting}
+	[Obsolete]
+	void OldUpdateMethod(int x,int y)
+\end{lstlisting}
+\begin{itemize}
+	\item Please note attributes can decorate classes, methods or variables
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Unity Attributes}
+\begin{itemize}
+	\item Unity has a number of inbuilt Attributes that can be used to mark your code (or inherit from to make new Attributes)
+	\begin{itemize}
+		\pause\item ContexMenu - Markup a function - Adds a command to the context menu which can be selected in the inspector.
+		\pause\item SerializeField - Markup a Variable - Forces Unity to serialize a variable which will then be displayed in the inspector
+		\pause\item CustomEditor - Markup a class which inherits from Editor - This specifies that this editor class will be an editor for a certain script.
+		\pause\item DrawGizmo - Markup a function - This method should have same signature as DrawGizmo, will draw a gizmo in the editor.  
+	\end{itemize} 
+	\pause\url{https://docs.unity3d.com/400/Documentation/ScriptReference/20_class_hierarchy.Attributes.html}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Property Drawer}
+\begin{itemize}
+	\item Property Drawers allow you to customize how a script displays its variables in the inspector
+	\item You have to create a class that inherits from \textbf{PropertyDrawer}, then override the \textbf{OnGUI} function
+	\item We then have complete control of how the property is drawn using Immediate Mode GUI (drawing via code)
+\end{itemize}
+\end{frame}

@@ -1,0 +1,29 @@
+\part{Subsurface Shaders}
+\frame{\partpage}
+
+
+\begin{frame}{Shaders in Unity}
+	\begin{itemize}
+		\item There are many approaches to writing shaders in Unity
+		\begin{itemize}
+			\pause\item Surface Shaders
+			\pause\item Vertex and Fragment Shaders
+			\pause\item Fixed Function Shaders
+		\end{itemize}
+		\pause\item The best method is to use Surface Shaders, this is the quickest way to get started
+		\pause\item This interacts with the standard lights and shadows in Unity
+		\pause\item Regardless of the shader type, your code will be wrapped in ShaderLab 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{ShaderLab}
+	\begin{itemize}
+		\item ShaderLab is a simple scripting language for defining graphical effects
+		\pause\item It contains the following
+		\begin{itemize}
+			\pause\item Properties - These are shown in the inspector of the material and is a way to expose shader variables
+			\pause\item SubShaders - Is a list of pass or the surface shader code itself
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+

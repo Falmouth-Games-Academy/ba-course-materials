@@ -1,0 +1,26 @@
+\part{Wizard}
+\frame{\partpage}
+
+\begin{frame}{More on Editor Scripts}
+	\begin{itemize}
+		\item All editor scripts should be placed in an Editor Folder
+		\item You have to add a using statement for \textbf{UnityEditor} to the top of the source file
+		\item You can create custom Inspectors for Scripts using Property Drawer or you can take complete control and create a Custom editor
+		\item You can also add custom menu items, this then allows you to create Wizards for common tasks
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Immediate Mode GUI}
+	\begin{itemize}
+		\item This is a separate system from Unity's Game Object based UI System
+		\item You write the GUI entirely in code, this code has to be in the OnGUI (or equivalent) function or be in a function that is called by OnGUI
+		\item All logic for the controls have to go into this function, e.g to detect button presses
+		\item You can customise the look n' feel of the editor using GUI Styles and Skins
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		Wizard Live Coding
+	\end{center}
+\end{frame}
