@@ -1,0 +1,48 @@
+% Adjust these for the path of the theme and its graphics, relative to this file
+%\usepackage{beamerthemeFalmouthGamesAcademy}
+\usepackage{../../beamerthemeFalmouthGamesAcademy}
+\usepackage{multimedia}
+\graphicspath{ {../../} }
+
+% Default language for code listings
+\lstset{language=C++,
+        morekeywords={each,in,nullptr},
+        basicstyle=\ttfamily\scriptsize,
+        keywordstyle=\color{blue}\ttfamily,
+		stringstyle=\color{red}\ttfamily,
+		commentstyle=\color{green}\ttfamily,
+		breaklines=true
+}
+
+% For strikethrough effect
+\usepackage[normalem]{ulem}
+\usepackage{wasysym}
+\usepackage{pdfpages}
+
+% http://www.texample.net/tikz/examples/state-machine/
+\usetikzlibrary{arrows,automata}
+
+\input{sessioninfo}
+
+\begin{document}
+\title{\sessionnumber: Introduction to Object Orientated Programming}
+\subtitle{\modulecode: \moduletitle}
+
+\frame{\titlepage} 
+
+\begin{frame}
+	\frametitle{Learning outcomes}
+	\begin{itemize}
+		\item \textbf{Understand} Object Orientated principles
+		\item \textbf{Understand} the Single Responsibility principle
+		\item \textbf{Implement} a simple class hierarchy
+	\end{itemize}
+\end{frame}
+
+\input{assignment}
+\input{altcontroller}
+\input{OOPPrinciples}
+\input{SRPrinciple}
+
+
+\end{document}
