@@ -1,0 +1,167 @@
+\part{Memory}
+\frame{\partpage}
+
+\begin{frame}{Memory Refresher}
+	\begin{itemize}
+		\pause \item Recall that:
+		\begin{itemize}
+			\pause \item Dynamic memory, allocated on the \textbf{Heap} and is \textbf{growable}
+			\pause \item Static memory, allocated on the \textbf{Stack} and is \textbf{fixed size}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Stack Memory}
+	\begin{itemize}
+		\pause \item When you allocate value types (int, float, short, char etc), these are allocated on the stack
+		\pause \item Values allocated on the stack are local, when they drop out of scope they are deallocated  
+		\pause \item Values passed into functions are copied onto the stack
+		\pause \item The stack is of fixed size
+		\begin{itemize}
+			\item C\# - \textbf{1MB}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Stack Memory Example 1}
+	\begin{lstlisting}
+		void Update()
+		{
+			int x=10;
+			int y=10;
+	
+			Vector2 pos=Vector2(x,y);
+		} //<-- x, y and pos drop out of scope here
+	\end{lstlisting} 
+\end{frame}
+
+
+\begin{frame}{Heap Memory}
+	\begin{itemize}
+	\pause \item Otherwise known as dynamic memory
+	\pause \item Types allocated with the \textbf{new} keyword are allocated on the heap
+	\pause \item This heap is managed by the garbage collector in C\#
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Heap Memory Example 1 - C\#}
+\begin{lstlisting}[language=C++,basicstyle=\tiny,]
+	public class MonsterStats
+	{
+		private int health;
+		private int strength;
+		
+		public MonsterStats()
+		{
+			health=100;
+			strength=10;
+		}
+	
+		public void ChangeHealth(int h)
+		{
+			health+=h;
+		}//<- h drops out of scope here
+	
+		void ChangeStrength(int s)
+		{
+			strength+=s;
+		}//<- s drops out of scope here
+	}
+
+	void Start()
+	{		
+		//Create an instance of the class on the Heap
+		MonsterStats new stats=MonsterStats();
+		stats.ChangeHealth(10);
+		stats.ChangeStrength(-2);
+	}	
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Data Types in C\#}
+	\begin{itemize}
+		\item Value types include primitives such as int, bool, float etc
+		\item Structs are custom value types (see example below)
+		\item Reference types are anything declare with the \textbf{class}, \textbf{interface} \& \textbf{delegate}
+		\item In addition to this strings are also \textbf{reference types}
+		\item Value types are allocated on the stack
+		\item Reference type are allocated on the heap
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Struct Example - C\#}
+	\begin{lstlisting}[language=C++,basicstyle=\tiny,]
+		public struct MonsterStats
+		{
+			private int health;
+			private int strength;
+			
+			public MonsterStats()
+			{
+				health=100;
+				strength=10;
+			}
+		}
+	
+		void Start()
+		{		
+			//Create an instance of the struct on the stack
+			MonsterStats stats=new MonsterStats();
+			stats.ChangeHealth(10);
+			stats.ChangeStrength(-2);
+		}	
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Passing Variables}
+	\begin{itemize}
+		\pause \item In C\#, when we call a method and pass some data as a parameter we either pass by value or we pass by reference. 
+		\pause \item We can mark a parameter with the \textbf{ref} or \textbf{out} keyword (see example)
+		\pause \item If you pass a variable using \textbf{ref} keyword it has to be initialised before hand
+		\pause \item If you pass a variable using \textbf{out} keyword it can be initialised in a function
+		\pause \item Reference types are always passed by reference, you do not need to use the \textbf{keyword}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Passing Example 1 - C\#}
+	\begin{lstlisting}
+		int x=10;
+		
+		void Adder(ref int value,int v)
+		{
+			value+=v;	
+		}
+		
+		Adder(ref x,10);
+		//x would now be 20 after this		
+	
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Passing Example 2 - C\#}
+	\begin{lstlisting}[language=C++,basicstyle=\tiny,]
+	
+		void SetupMonster(ref MonsterStats stats, int health, int strength)
+		{
+			//if we use the ref keyword MonsterStats has to be initialised
+			stats.health=health;
+			stats.strength=strength;
+		}
+		
+		void CreateMonster(out MonsterStats stats,int health, int strength)
+		{
+			//when we use out, it means we can initialise inside the function
+			stats=new MonsterStats();
+			stats.health=health;
+			stats.strength=strength;
+		}
+		
+		//Calling code
+		MonsterStats goblinStats=new MonsterStats();
+		SetupMonster(ref goblinStats,10,2);
+		
+		MonsterStats orcStats;
+		CreateMonster(out orcStats,20,4);
+	\end{lstlisting}
+\end{frame}
+
