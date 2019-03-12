@@ -1,0 +1,33 @@
+\part{ScriptableObjects}
+\frame{\partpage}
+
+\begin{frame}{Scriptable Objects}
+	\begin{itemize}
+		\item Is a class which allows you to store data separate from Script instances
+		\pause\item You have to inherit from the \textbf{ScriptableObject} class
+		\pause\item All properties are serialized and can be stored in a asset
+		\pause\item This means that you can add an instance of your ScriptableObject to a script and then assign the asset to it
+		\pause\item This is great for storing stats, weapons etc
+		\pause\item TIP: You can decorate your Scriptable Object with a CreateAssetMenu Attribute. This will allow you to create the Scriptable Object via a menu item.
+	\end{itemize}
+	\url{https://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects}
+\end{frame}
+
+
+\begin{frame}[fragile]{Scriptable Object Example}
+\begin{lstlisting}
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+//This will add an entry to the Asset/Create menu
+[CreateAssetMenu(fileName ="Item",menuName ="Items/Item",order =1)]
+public class ItemScriptableObject : ScriptableObject
+{
+	public string Name;
+	public float Quality;
+	public float Strength;
+	public Sprite Image;
+}
+\end{lstlisting} 
+\end{frame}
