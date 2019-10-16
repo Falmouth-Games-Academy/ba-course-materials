@@ -4,8 +4,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include <windows.h>
-
 #undef  main
 
 #include <stdlib.h> //rand()
@@ -31,6 +29,35 @@ public:
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
 
+SDL_Texture* fontTexture;
+
+void PrintText(int x, int y, const char *p)
+{
+    const char *q = p;
+
+    SDL_Rect dest;
+    SDL_Rect glyph;
+    float scale  =3;
+    while(*q)
+    {
+        glyph.x = ((*q)%16)*16;
+        glyph.y = ((*q)/16)*16;
+        glyph.w = 16;
+        glyph.h = 16;
+
+        dest.x = x;
+        dest.y = y;
+        dest.w = 8*scale;
+        dest.h = 8*scale;
+
+        SDL_RenderCopy(renderer, fontTexture, &glyph, &dest);
+
+        q++;
+
+        x+= 8*scale;
+    }
+}
+
 int main(int argc, char *argv[]) 
 {
 	//Initialise IMG system, this allows us to load PNG files
@@ -44,7 +71,7 @@ int main(int argc, char *argv[])
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) != 0)
 	{
 		SDL_Log("Failed to initialize SDL: %s", SDL_GetError());
-		return false;
+		return 0;
 	}
 
 	//create a window that is 800x600 pixels
@@ -58,7 +85,7 @@ int main(int argc, char *argv[])
 	if (srcImage == NULL)
 	{
 		SDL_Log("SDL_Surface: can't load image\n");
-		goto quit;
+        return 0;
 	}
 
 	srcImage = SDL_ConvertSurfaceFormat(srcImage, SDL_PIXELFORMAT_ARGB8888, 0);
@@ -81,15 +108,14 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	SDL_Texture* fontTexture;
-	
+
 	//convert the
 	fontTexture = SDL_CreateTextureFromSurface(renderer, srcImage);
 	
 	if (fontTexture == NULL)
 	{
 		SDL_Log("SDL_Texture: can't create texture\n");
-		goto quit;
+		return 0;
 	}
 
 	SDL_SetTextureBlendMode(fontTexture, SDL_BLENDMODE_BLEND);
@@ -199,10 +225,17 @@ int main(int argc, char *argv[])
 		dest.y = ballY;
 		dest.w = 256;
 		dest.h = 256;
-					
+
+        SDL_SetTextureColorMod(fontTexture,255,255,255);
 		SDL_RenderCopy(renderer, fontTexture, NULL, &dest);
 
-		//This uses the window title to display frame performance information
+        SDL_SetTextureColorMod(fontTexture,255,255,0);
+        PrintText(100,30,"Here is some text");
+
+        SDL_SetTextureColorMod(fontTexture,0,0,255);
+        PrintText(100,60,"Here is some text");
+
+        //This uses the window title to display frame performance information
 		{
 			char temp[255];
 
@@ -217,7 +250,7 @@ int main(int argc, char *argv[])
 		//Sleep the app					
 		if (elaspedTime < 16)
 		{
-			Sleep(16 - elaspedTime);					
+			SDL_Delay(16 - elaspedTime);
 		}							
 	}
 	
